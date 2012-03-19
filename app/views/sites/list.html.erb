@@ -1,0 +1,71 @@
+<head>
+<script type="text/javascript">
+window.___gcfg = {lang: 'en'};
+(function() 
+{var po = document.createElement("script");
+po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(po, s);
+})();</script>
+</head>
+<body>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=136358046479461";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div class="site list">
+  <h2>Sites</h2>
+  <%= link_to("Add a Site", {:action=>'new'}, :class=>'back-link') %>
+  
+  <table class="listing" summary="Site List">
+    <tr class="header">
+      <th>Site</th>
+      <th>G+</th>
+      <th>+1</th>
+      <th>fb site like</th>
+      <th>fb page</th>
+      <th>twitter</th>
+      <th>url</th>
+      <th>edit</th>
+    </tr>
+    <% @sites.each do |site| %>
+    <tr>
+      <td><%= site.name %></td>
+      <td><g:plus href="https://plus.google.com/<%= site.gplus_page_num %>" width="300" height="131" theme="light"></g:plus></td>
+      <td>
+        <g:plusone size="medium" href="<%= site.url %>"></g:plusone>
+      </td>
+      <td>
+        <div class="fb-like" data-href="<%= site.url %>" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+      </td>
+      <td>
+        <div class="fb-like-box" data-href="http://www.facebook.com/<%= site.fb_page %>" data-width="250" data-height="100" data-show-faces="false" data-stream="false" data-header="false"></div>
+      </td>
+      <td><%= site.twitter_username %></td>
+      <td><%= site.url %></td>
+      <td class="actions">
+        <%= link_to("Edit", {:action=>'edit', :id=>site.id})%>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<a href="https://twitter.com/carsdirect" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false">Follow @carsdirect</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    

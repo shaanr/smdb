@@ -1,0 +1,2 @@
+class VerticalsController < ApplicationController
+end

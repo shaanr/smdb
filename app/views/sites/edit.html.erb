@@ -1,0 +1,30 @@
+<%= link_to("<< Back to List", {:action=>'list'}, :class=>'back-link') %>
+
+<div class="site edit">
+  <h2>Edit Site</h2>
+  
+  <%= form_for(:site, :url => {:action => 'update', :id => @site.id}) do |f| %>
+    <table summary="Site form field">
+    <tr>
+      <td>Site URL (eg http://www.carsdirect.com)</td>
+      <td><%= f.text_field(:url) %></td>
+    </tr>
+    <tr>
+      <td>G+ Profile Page Number</td>  
+      <td><%= f.text_field(:gplus_page_num) %></td>
+    </tr>
+    <tr>
+      <td>FB Page Slug (facebook.com/<b>carsdirect</b>)</td>  
+      <td><%= f.text_field(:fb_page) %></td>
+    </tr>
+    <tr>
+      <td>Twitter Username</td>  
+      <td><%= f.text_field(:twitter_username) %></td>
+    </tr>
+    </table>
+  
+  <div class="form-buttons">
+    <%= submit_tag("Edit Site") %>
+  </div>
+  <% end %>
+</div>
